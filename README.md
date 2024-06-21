@@ -1,26 +1,29 @@
-# Blur Detection API
+# 📷 Blur Detection API
 
 This API detects if an image is blurry. It is built using Python, Flask, TensorFlow, and Docker, and deployed on Google Cloud Run.
 
-## Table of Contents
-- [Requirements](#requirements)
-- [Setup](#setup)
-- [Running Locally](#running-locally)
-- [Deploying to Google Cloud Run](#deploying-to-google-cloud-run)
-- [Usage](#usage)
-- [Example Request](#example-request)
-- [Example Response](#example-response)
+## 📜 Table of Contents
+- [🛠 Requirements](#requirements)
+- [⚙️ Setup](#setup)
+- [💻 Running Locally](#running-locally)
+- [☁️ Deploying to Google Cloud Run](#deploying-to-google-cloud-run)
+- [📡 Usage](#usage)
+- [📤 Example Request](#example-request)
+- [📥 Example Response](#example-response)
+- [🔍 Local Testing with Postman](#local-testing-with-postman)
+- [⚠️ Common Issues](#common-issues)
+- [🔚 Conclusion](#conclusion)
 
-## Requirements
-- Python 3.9+
-- Docker
-- Google Cloud SDK (for deployment)
+## 🛠 Requirements
+- 🐍 Python 3.9+
+- 🐳 Docker
+- ☁️ Google Cloud SDK (for deployment)
 
-## Setup
+## ⚙️ Setup
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-repo/blur-detection-api.git
+    git clone https://github.com/frhnspwli/aireal-model-api.git
     cd blur-detection-api
     ```
 
@@ -34,7 +37,7 @@ This API detects if an image is blurry. It is built using Python, Flask, TensorF
 3. **Place your model file:**
     - Ensure the `model.h5` file is placed inside the `app` directory.
 
-## Running Locally
+## 💻 Running Locally
 
 1. **Build and run the Docker container:**
     ```bash
@@ -51,7 +54,7 @@ This API detects if an image is blurry. It is built using Python, Flask, TensorF
     --form "file=@\"/path/to/your/image.png\""
     ```
 
-## Deploying to Google Cloud Run
+## ☁️ Deploying to Google Cloud Run
 
 1. **Authenticate with Google Cloud:**
     ```bash
@@ -70,7 +73,7 @@ This API detects if an image is blurry. It is built using Python, Flask, TensorF
     gcloud run deploy blur-detection-app --image gcr.io/your-project-id/blur-detection-app --platform managed --region your-region --allow-unauthenticated
     ```
 
-## Usage
+## 📡 Usage
 
 ### Endpoint
 - **URL**: `https://your-cloud-run-service-url/`
@@ -80,14 +83,14 @@ This API detects if an image is blurry. It is built using Python, Flask, TensorF
   - **Type**: File
   - **Description**: The image file to be checked for blurriness.
 
-### Example Request
+### 📤 Example Request
 #### Using `curl`:
 ```bash
 curl --location "https://your-cloud-run-service-url/" \
 --form "file=@\"/path/to/your/image.png\""
 ```
 
-### Example Response
+### 📥 Example Response
 ```json
 {
   "is_blurry": false,
@@ -100,7 +103,7 @@ curl --location "https://your-cloud-run-service-url/" \
 }
 ```
 
-## Local Testing with Postman
+## 🔍 Local Testing with Postman
 1. Open Postman.
 2. Create a new POST request.
 3. Set the URL to `http://localhost:8080/`.
@@ -111,11 +114,11 @@ curl --location "https://your-cloud-run-service-url/" \
    - Value: Choose the image file you want to test.
 6. Send the request and you should see a JSON response indicating whether the image is blurry.
 
-## Common Issues
+## ⚠️ Common Issues
 - **Memory Limit Exceeded**: If you encounter a memory limit error on Google Cloud Run, consider increasing the memory limit in your deployment settings.
 - **Module Not Found**: Ensure all dependencies are correctly listed in the `requirements.txt` file and installed.
 
-## Conclusion
+## 🔚 Conclusion
 This API provides a simple interface to check if an image is blurry using a machine learning model. It is containerized with Docker and can be easily deployed on Google Cloud Run for scalable and serverless operation.
 
 For any issues or contributions, please refer to the [GitHub repository](https://github.com/frhnspwli/aireal-model-api).
